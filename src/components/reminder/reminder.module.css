@@ -1,0 +1,23 @@
+.reminder{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: white;
+    color: black;
+    width: 50%;
+    border-radius: 20px;
+    padding: 20px;
+    font-family: "Changa", sans-serif;
+}
+
+.reminder h3{
+    text-align: center;
+}
+.icon{
+    font-size: 25px;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+    border-radius: 5px;
+}

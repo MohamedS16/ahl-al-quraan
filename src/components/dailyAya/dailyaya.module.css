@@ -1,0 +1,27 @@
+.ayahContainer{
+    height: 70vh;
+    width: 100vw;
+    display: flex;
+    background-color: rgb(235, 244, 252);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: hidden;
+    color: black;
+}
+
+.ayahContainer>h2{
+    font-size: 45px;
+    font-family: "Changa", sans-serif;
+}
+
+.ayahContainer>p{
+    font-size: 35px;
+    width: 80%;
+    text-align: center;
+}
+
+.ayahDetails,
+.loading{
+    font-family: "Changa", sans-serif;
+}

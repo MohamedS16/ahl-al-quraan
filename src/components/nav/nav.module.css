@@ -1,0 +1,81 @@
+.nav{
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    background-color: dodgerblue;
+}
+
+.container{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container>p{
+    font-family:"Noto Nastaliq Urdu", serif;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.links a{
+    padding: 10px 20px;
+    position: relative;
+}
+
+.links a:hover::before{
+    content: '';
+    position: absolute;
+    background-color: white;
+    bottom: 3px;
+    right: 10px;
+    height: 3px;
+    animation: navUnderline 0.3s ease-in-out 0s 1 alternate forwards ;
+}
+
+@keyframes navUnderline {
+    from{
+        width: 0;
+    }
+    to{
+        width: 75px;
+    }
+}
+
+.toggler{
+    display: none;
+}
+
+@media screen and (max-width : 800px) {
+    .toggler{
+        display: flex;
+    }
+
+    .links{
+        height: 100vh;
+        width: 250px;
+        position: absolute;
+        left: 0;
+        top: 60px;
+        background-color: dodgerblue;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .links a{
+        margin: 20px 0;
+    }
+
+    .hide{
+        display: none;
+    }
+}
