@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import DailyAya from './components/dailyAya/DailyAya'
-import Landing from './components/landing/Landing'
 import Nav from './components/nav/Nav'
-import Reminder from './components/reminder/Reminder'
-import Receiters from './components/recieters/Receiters'
+import { Route, Routes } from 'react-router-dom'
+import Home from './components/home/Home'
+import Swr from './components/del/swr/Swr'
+import Quraa from './components/Quraa/Quraa'
+import QuraaSwr from './components/QuraaSwr/QuraaSwr'
 
 const App = ()=>{
   const [day,setDay] = useState(0)
@@ -15,14 +16,26 @@ const App = ()=>{
   return (
     <>
       <Nav />
-      <Landing />
-      <DailyAya />
-      {
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/quraa' element={<Quraa />} />
+        <Route path='/quraa/:id' element={<QuraaSwr />} />
+        <Route path='/swr' element={<Swr />} />
+      </Routes>
+      {/* {
         day === 5 && <Reminder />
-      }
-      <Receiters />
+      } */}
+      
     </>
   )
 }
 
 export default App
+
+
+// import Reminder from './components/reminder/Reminder'
+// import Receiters from './components/del/recieters/Receiters'
+// import Telawa from './components/del/telawa/Telawa'
+
+// <Route path='/reciters' element={<Receiters />} />
+// <Route path='/reciters/:lang/:rewaya/:id' element={<Telawa />} />
