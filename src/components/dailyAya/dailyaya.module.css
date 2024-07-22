@@ -21,7 +21,10 @@
     text-align: center;
 }
 
-.ayahDetails,
+.ayahDetails>p{
+    font-size: 20px;
+}
+
 .loading{
     font-family: "Changa", sans-serif;
 }

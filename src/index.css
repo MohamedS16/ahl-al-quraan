@@ -26,12 +26,15 @@
   border-radius: 10px;
   width: 8px;
 }
-
+*{
+  box-sizing: border-box;
+}
 a {
   text-decoration: none;
   font-family: "Changa", sans-serif;
   color: white;
 }
+
 
 nav{
   z-index: 999;
@@ -88,4 +91,14 @@ button {
   button {
     background-color: #f9f9f9;
   }
+} */
+/* 
+ 
+@font-face{
+  font-family: 'uthmani';
+  src: local('uthmani'), url('./assets/fonts/uthmanic_hafs_v22.ttf') format('ttf');
+} 
+
+h1{
+  font-family: 'uthmani';
 } */

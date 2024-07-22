@@ -1,7 +1,11 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, Outlet, useParams } from "react-router-dom"
 import styles from './QuraaSwr.module.css'
+import { CiSearch } from "react-icons/ci";
+import { FaPlay } from "react-icons/fa";
+
+
 
 type qaree = {
   id : number,
@@ -33,7 +37,10 @@ const QuraaSwr = () => {
     const [reciter,setReciter] = useState <qaree>()
     const [swrNames,setSwrNames] = useState <swr>()
     const [loading,setLoading] = useState(true)
+    const [rewaya,setRewaya] = useState(0)
+    const [search,setSearch] = useState('')
     const params = useParams()
+    const [sora,setSora] : any = useState()
 
     useEffect(()=>{
         axios.get(`https://mp3quran.net/api/v3/reciters?reciter=${params.id}`)
@@ -46,21 +53,55 @@ const QuraaSwr = () => {
     <section className={styles.quraaswr}>
       <div className={styles.container}>
         {
-          // loading ? <p>Loading...</p> : 
+          // loading ? <p>Loading...</p> :
           <>
             <div className={styles.qardetails}>
               <h1> {reciter?.name} </h1>
             </div>
+            <div className={styles.settings}>
+              <div className={styles.rewaya}>
+                <h3> رواية : </h3>
+                <select onChange={(e)=>setRewaya(+e.target.value)}>
+                {
+                  reciter?.moshaf.map((m,idx)=><option key={m.id} value={idx} onClick={()=>{setRewaya(idx);console.log(rewaya)}}> {m.name} </option>)
+                }
+                </select>
+              </div>
+
+              <div className={styles.search}>
+                <input type="text" placeholder=" ابحث عن سورة" onChange={(e)=>setSearch(e.target.value)} />
+                <CiSearch />
+              </div>
+            </div>
             <div className={styles.swrContainer}>
               {
-                reciter?.moshaf[0].surah_list.split(',').map(su=>swrNames?.map((s)=> +su === s.id && <p key={s.id}>{s.name}</p>))
+                reciter?.moshaf[rewaya]?.surah_list?.split(',').map(su=>swrNames?.filter((r)=>{
+                  if(search === ''){
+                    return r
+                  }else{
+                    return r.name.includes(search)
+                  }
+                  
+                }).map((s)=> +su === s.id && 
+                <Link to={`${s.id}`} className={styles.sora} onClick={()=>setSora({...s,moshaf :reciter?.moshaf[rewaya]})}  key={s.id}>
+                  <div className={styles.soraname}>
+                    <FaPlay />
+                    <p>{s.id} -</p>
+                    <p> {s.name} </p>  
+                  </div>
+
+                  <p>{s.makkia ? 'مكية' : "مدنية"}</p>
+                  {/* <audio src={`${reciter.moshaf[0].server}${+su < 10 ? `00${su}` : +su < 100 ? `0${su}` : su }.mp3`} controls ></audio> */}
+                </Link>
+                ))
               }
             </div>
+            
+            <Outlet context={{name: reciter?.name, sora }} />
           </>
         }
       </div>
     </section>
-  )
-}
+  )}
 
 export default QuraaSwr

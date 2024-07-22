@@ -1,0 +1,160 @@
+.quraaswr {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ebedee;
+    font-family: "Changa", sans-serif;
+
+    /* box-sizing: border-box; */
+}
+
+.container {
+    color: black;
+    width: 85vw;
+    min-height: 50vh;
+    /* background-color: white; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    margin-top: 30px;
+    /* box-sizing: border-box; */
+}
+
+.qardetails {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 100%;
+    padding: 0px 20px;
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px 0px;
+}
+
+.settings {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px 50px;
+    width: 100%;
+    margin: 10px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    justify-content: space-between;
+
+}
+
+.rewaya {
+    display: flex;
+    align-items: center;
+}
+
+.rewaya select {
+    background-color: dodgerblue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    font-family: "Changa", sans-serif;
+    margin-right: 10px;
+}
+
+/* 
+.rewaya select option{
+    padding:5px 10px;
+} */
+
+.swrContainer {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 85vw;
+    margin: 10px 0px;
+    background-color: white;
+    padding: 50px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+@media screen and (max-width : 1200px) {
+    .swrContainer{
+        justify-content: center;
+    }
+}
+
+.sora {
+    
+    /* margin: 10px; */
+    border: 1px solid dodgerblue;
+    color: black;
+    padding: 0px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 293px;
+    cursor: pointer;
+}
+
+.sora svg{
+    color: dodgerblue;
+    margin-left: 5px;
+}
+
+.sora:hover{
+    background-color: dodgerblue;
+    color: white;
+}
+
+.sora:hover svg{
+    color: white;
+}
+
+
+.soraname{
+    display: flex;
+    align-items: center;
+}
+
+.soraname p:nth-child(2){
+    margin: 0px 3px;
+}
+.search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search input {
+    font-family: "Changa", sans-serif;
+    color: black;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 3px solid dodgerblue;
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 200px;
+}
+
+.search input::placeholder {
+    color: black;
+}
+
+.search svg {
+    position: absolute;
+    left: 0px;
+    top: 15px;
+    cursor: pointer;
+    color: black;
+
+}

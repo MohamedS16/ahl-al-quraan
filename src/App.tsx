@@ -6,6 +6,7 @@ import Home from './components/home/Home'
 import Swr from './components/del/swr/Swr'
 import Quraa from './components/Quraa/Quraa'
 import QuraaSwr from './components/QuraaSwr/QuraaSwr'
+import Listen from './components/listen/Listen'
 
 const App = ()=>{
   const [day,setDay] = useState(0)
@@ -19,7 +20,9 @@ const App = ()=>{
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/quraa' element={<Quraa />} />
-        <Route path='/quraa/:id' element={<QuraaSwr />} />
+        <Route path='/quraa/:id' element={<QuraaSwr />}> 
+          <Route path=':idd' element={<Listen />} />
+        </Route>
         <Route path='/swr' element={<Swr />} />
       </Routes>
       {/* {
