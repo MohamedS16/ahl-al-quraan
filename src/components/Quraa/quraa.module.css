@@ -1,17 +1,18 @@
-.container{
+.container {
     min-height: 100vh;
     width: 100vw;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     padding: 70px 0px 30px;
-    background-color: lightblue;
+    background-color: #ebedee;
     color: black;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     font-family: "Changa", sans-serif;
     box-sizing: border-box;
 }
 
-.content{
+.content {
     min-height: 80vh;
     width: 80vw;
     background-color: white;
@@ -23,11 +24,13 @@
     justify-content: center;
     position: relative;
 }
-.content a{
+
+.content a {
     color: black;
 
 }
-.reciters{
+
+.reciters {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -37,20 +40,21 @@
     z-index: 2;
 }
 
-.reciters a{
+.reciters a {
     color: black;
     padding: 10px 20px;
     border: 1px solid dodgerblue;
     border-radius: 10px;
     transition: 0.5s;
 }
-.reciters a:hover{
+
+.reciters a:hover {
     color: white;
     background-color: dodgerblue;
-    
+
 }
 
-.letter{
+.letter {
     color: white;
     background-color: dodgerblue;
     padding: 10px;
@@ -60,49 +64,50 @@
     font-size: 20px;
 }
 
-.search{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    }
-    
-    .search input{
-        font-family: "Changa", sans-serif;
-        color: black;
-        border: none;
-        outline: none;
-        background-color: transparent;
-        border-bottom: 3px solid dodgerblue;
-        border-radius: 5px;
-        padding: 5px 10px;
-        margin-bottom: 30px;
-        width: 300px;
-    }
-    
-    .search input::placeholder{
-        color: black;
-    }
-    
-    .search svg{
-        position: absolute;
-        left: 0px;
-        top: 15px;
-        cursor: pointer;
-        color: black;
+.search {
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+}
 
-    }
-    
-    
-    @media screen and (max-width : 1250px) {
+.search input {
+    font-family: "Changa", sans-serif;
+    color: black;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 3px solid dodgerblue;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 30px;
+    width: 300px;
+}
 
-        .content{
-            width: 70%;
-        }
-    
+.search input::placeholder {
+    color: black;
+}
 
+.search svg {
+    position: absolute;
+    left: 0px;
+    top: 15px;
+    cursor: pointer;
+    color: black;
+
+}
+
+
+@media screen and (max-width : 1250px) {
+
+    .content {
+        width: 70%;
     }
-    .nocontent{
-        position: absolute;
-        bottom: 50px;
-    }
+
+
+}
+
+.nocontent {
+    position: absolute;
+    bottom: 50px;
+}

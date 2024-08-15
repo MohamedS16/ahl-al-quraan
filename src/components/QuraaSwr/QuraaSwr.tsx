@@ -4,7 +4,8 @@ import { Link, Outlet, useParams } from "react-router-dom"
 import styles from './QuraaSwr.module.css'
 import { CiSearch } from "react-icons/ci";
 import { FaPlay } from "react-icons/fa";
-
+import React from "react";
+import changeNumbersToArabic from "../../utils/changeNumbersToArabic";
 
 
 type qaree = {
@@ -86,8 +87,7 @@ const QuraaSwr = () => {
                 <Link to={`${s.id}`} className={styles.sora} onClick={()=>setSora({...s,moshaf :reciter?.moshaf[rewaya]})}  key={s.id}>
                   <div className={styles.soraname}>
                     <FaPlay />
-                    <p>{s.id} -</p>
-                    <p> {s.name} </p>  
+                    <p> {changeNumbersToArabic(`${s.id}`)} - {s.name} </p>  
                   </div>
 
                   <p>{s.makkia ? 'مكية' : "مدنية"}</p>
@@ -104,4 +104,4 @@ const QuraaSwr = () => {
     </section>
   )}
 
-export default QuraaSwr
+export default React.memo(QuraaSwr)

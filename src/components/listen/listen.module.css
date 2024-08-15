@@ -15,8 +15,57 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-top: 50px;
     border-radius: 20px;
-    background-color: white;
-    height: 80vh;
-    width: 80vw;
+    background-color: #ebedee;
+    /* min-height: 80vh; */
+    /* width: 80vw; */
+    padding: 15px;
 }
 
+.listencontent>svg{
+    font-size: 30px;
+    color: dodgerblue;
+    cursor: pointer;
+}
+
+.text{
+    padding: 30px 50px;
+}
+
+.text h2{
+    font-size: 35px;
+}
+
+.qarDetails>h2{
+    line-height: 0px;
+}
+
+.text h3{
+    margin: 50px 0 20px;
+}
+
+.audiop{
+    border-radius: 10px;
+    width: 500px;
+    overflow: hidden;
+    direction: ltr;
+    margin-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
+
+.audiop button{
+    color: dodgerblue;
+}
+
+/* .download{
+    background-color: transparent;
+    color: dodgerblue;
+    border: 1px solid dodgerblue;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+} */
+
+.download{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

@@ -5,7 +5,7 @@ const Landing = () => {
     <section className={styles.landingContainer}>
         <div className={styles.textContent}>
             <h1> وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا </h1>
-            <button> تصفح الموقع </button>
+            <button className='button'> تصفح الموقع </button>
         </div>
     </section>
   )

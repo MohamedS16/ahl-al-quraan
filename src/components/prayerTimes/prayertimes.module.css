@@ -1,0 +1,28 @@
+.prayerTimes{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    background-color: white;
+    color: black;
+    font-family: "Changa", sans-serif;
+}
+
+.prayerTimes h2{
+    font-size: 45px;
+    text-align: center;
+}
+
+.prayerTimes_prayer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px; 
+    font-weight: 600;
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+    line-height: 10px;
+}

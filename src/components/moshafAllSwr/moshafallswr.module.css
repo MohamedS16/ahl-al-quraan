@@ -1,0 +1,96 @@
+.container{
+    background-color: #ebedee;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+    padding: 40px 0px;
+    font-family: "Changa", sans-serif;
+
+}
+
+.content{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: white;
+    border-radius: 20px;
+    width: 90vw;
+    margin-top: 20px;    
+    display: flex;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    gap: 10px;
+}
+
+.sora{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 25vw;
+    min-width: 200px;
+    color: black;
+    padding: 10px 20px;
+    border: 1px solid dodgerblue;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.sora:hover{
+    color: white;
+    background-color: dodgerblue;
+    
+}
+
+.sora p{
+    line-height: 0px;
+}
+
+
+.settings{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: white;
+    border-radius: 20px;
+    width: 90vw;
+    margin-top: 40px;    
+    display: flex;
+    color: black;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 30px;
+}
+
+.search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    
+    .search input {
+        font-family: "Changa", sans-serif;
+        color: black;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        border-bottom: 3px solid dodgerblue;
+        border-radius: 5px;
+        padding: 5px 10px;
+        width: 300px;
+    }
+    
+    .search input::placeholder {
+        color: black;
+    }
+    
+    .search svg {
+        position: absolute;
+        left: 0px;
+        top: 15px;
+        cursor: pointer;
+        color: black;
+    
+    }
+    

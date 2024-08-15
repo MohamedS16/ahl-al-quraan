@@ -14,8 +14,9 @@ const Nav = () => {
             <div className={styles.navContent}>
                 <div className={`${styles.links} ${navState ? styles.hide : ''}` }>
                     <NavLink to='/'> الرئيسية </NavLink>
-                    <NavLink to='/swr'> المصحف </NavLink>
+                    <NavLink to='/moshaf'> المصحف </NavLink>
                     <NavLink to='/quraa'> التلاوات </NavLink>
+                    <NavLink to='/radio'> الراديو </NavLink>
                 </div>
                 <div className={styles.toggler}>
                     <CiMenuFries onClick={()=>setNavState(!navState)} style={{fontSize: '40px', cursor: 'pointer'}} />

@@ -1,0 +1,74 @@
+.radio_container{
+    background-color: white;
+    min-height: 100vh;
+    width: 100vw;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.radios{
+    width: 80vw;
+    height: auto;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    padding: 50px;
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: center;
+    gap: 10px;
+}
+
+.radios div{
+    border: 1px solid dodgerblue;
+    padding: 0px 20px;
+    border-radius: 10px;
+    width: 24vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.radios div:hover{
+    background-color: dodgerblue;
+    color: white;
+}
+
+.radios div:hover svg{
+    color: white;
+}
+.radios svg{
+    color: dodgerblue;
+}
+
+.radio_pagination{
+    width: 80vw;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.radio_pagination p{
+    margin: 10px;
+    border: 2px solid dodgerblue;
+    width: 30px;
+    cursor: pointer;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: "Changa", sans-serif;
+    direction: rtl;
+}
+
+.radio_pagination p:hover{
+    background-color: dodgerblue;
+    color: white;
+}

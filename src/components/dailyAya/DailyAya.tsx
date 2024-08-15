@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import styles from './dailyaya.module.css'
+import changeNumbersToArabic from "../../utils/changeNumbersToArabic"
 
 type resp = {
     text : string,
@@ -30,7 +31,7 @@ const DailyAya = () => {
             <>
             <p>{ayah?.text}</p>
             <div className={styles.ayahDetails}>
-                <p>{ayah?.surah?.name + " الاية رقم " + ayah?.numberInSurah}</p>
+                <p>{ayah?.surah?.name + " الاية رقم " + changeNumbersToArabic(`${ayah?.numberInSurah}`)}</p>
                 <p> </p>
             </div>
             </> : <p className={styles.loading}>يتم اختيار اية لك...</p>

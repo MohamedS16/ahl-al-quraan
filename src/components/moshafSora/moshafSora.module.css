@@ -1,0 +1,105 @@
+.moshafContainer{
+    background-color: aliceblue;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 50px 50px;
+}
+
+.moshafContent{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: black;
+    border-radius: 20px;
+    /* height: 50vh; */
+    width: 80vw;
+    background-color: white;
+    padding:50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.basmala{
+    font-size: 20px;
+}
+
+.soraText{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: justify;
+    gap: 3px;
+}
+
+.moshafContent h1,
+.basmala{
+    margin: 10px ;
+}
+
+.soraText a{
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    /* line-height: 65px; */
+    /* font-size: 20px; */
+}
+
+.soraText a:hover{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.ayahNumber{
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0px 5px;
+    font-size: 1rem;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.changeFontSize{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: black;
+    z-index: 50;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 0px 20px;
+    border-radius: 10px;
+    font-family: "Changa", sans-serif;
+    position: fixed;
+    top: 70px;
+    background-color: white;
+    right: 20px;
+    /* align-self: flex-start; */
+    font-size: 20px;
+    /* float: right; */
+}
+
+.changeFontSize button{
+    padding: 10px 15px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 25px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width : 1000px) {
+
+    .moshafContent{
+        width: 100%;
+    }
+}

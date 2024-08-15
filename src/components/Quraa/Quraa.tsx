@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import styles from './quraa.module.css'
 import { Link } from "react-router-dom"
 import { CiSearch } from "react-icons/ci";
-
+import React from "react";
 
 type recitersType = [{
     id : number,
@@ -62,4 +62,4 @@ const Quraa = () => {
   )
 }
 
-export default Quraa
+export default React.memo(Quraa)
