@@ -14,15 +14,19 @@ import Radio from "./components/radio/Radio";
 import AudioWrapper from "./components/audioPlayer/AudioWrapper";
 import AudioPlayer from "./components/audioPlayer/AudioPlayer";
 import Gallery from "./components/gallery/Gallery";
+import Loading from "./components/loading/Loading";
 
 const App = () => {
   const [day, setDay] = useState(0);
+  const [loaded,setLoaded] = useState(false);
   useEffect(() => {
     setDay(new Date().getDay());
+    setLoaded(true);
   }, []);
 
   return (
     <>
+    {loaded ? <>
       <Nav />
       <AudioWrapper>
         <Routes>
@@ -40,7 +44,10 @@ const App = () => {
       </AudioWrapper>
       {day === 5 && <Reminder />}
       <Footer />
+      </> : 
+      <Loading />}
     </>
+
   );
 };
 
