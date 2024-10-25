@@ -2,7 +2,7 @@ import { useState } from "react"
 
 const LatestReads = () => {
 
-    const [reads,SetReads] = useState()
+    // const [reads,SetReads] = useState()
 
 
   return (
