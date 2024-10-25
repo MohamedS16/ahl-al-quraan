@@ -1,6 +1,4 @@
-import axios from "axios"
-import { useCallback, useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+
 import styles from './tafseer.module.css'
 import TafseerDetails from "./TafseerDetails";
 import TafseerProvider from "./TafseerProvider";

@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useContext, useEffect, useState } from "react"
-import { Link, Outlet, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import styles from './QuraaSwr.module.css'
 import { CiSearch } from "react-icons/ci";
 import { FaPlay } from "react-icons/fa";
@@ -38,7 +38,7 @@ const QuraaSwr = () => {
   
     const [reciter,setReciter] = useState <qaree>()
     const [swrNames,setSwrNames] = useState <swr>()
-    const [loading,setLoading] = useState(true)
+    // const [loading,setLoading] = useState(true)
     const [rewaya,setRewaya] = useState(0)
     const [search,setSearch] = useState('')
     const params = useParams()
