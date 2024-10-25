@@ -43,21 +43,21 @@
 .soraText a{
     color: black;
     font-family: Arial, Helvetica, sans-serif;
-    /* line-height: 65px; */
-    /* font-size: 20px; */
+    /* padding: 0px 3px; */
+    margin: 0px 3px;
 }
 
 .soraText a:hover{
     background-color: black;
     color: white;
-    padding: 10px;
+    padding: 10px 0px;
     border-radius: 5px;
 }
 
 .ayahNumber{
     padding: 5px;
+    /* margin: 0px 5px; */
     border-radius: 5px;
-    margin: 0px 5px;
     font-size: 1rem;
     text-align: center;
     background-color: black;
@@ -96,10 +96,32 @@
     cursor: pointer;
 }
 
+.changeFontBtns{
+    background-color: dodgerblue;
+    padding: 5px;
+    color: white;
+    font-size: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    left: -30px;
+
+}
 
 @media screen and (max-width : 1000px) {
 
     .moshafContent{
         width: 100%;
     }
+
+    /* .changeFontSize{
+        font-size: 18px;
+        right: 10px;
+    }
+
+    .changeFontSize button{
+        font-size: 20px;
+        padding: 5px 10px;
+
+    } */
 }

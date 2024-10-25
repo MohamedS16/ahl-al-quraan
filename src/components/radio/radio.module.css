@@ -1,5 +1,5 @@
 .radio_container{
-    background-color: white;
+    font-family: "Changa", sans-serif;
     min-height: 100vh;
     width: 100vw;
     color: black;
@@ -7,13 +7,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #f2f2f2;
+    
 }
 
 .radios{
     width: 80vw;
+    background-color: white;
     height: auto;
     border-radius: 20px;
-    background-color: #f2f2f2;
     padding: 50px;
     margin-top: 80px;
     display: flex;
@@ -64,7 +66,6 @@
     text-align: center;
     border-radius: 5px;
     font-size: 20px;
-    font-family: "Changa", sans-serif;
     direction: rtl;
 }
 

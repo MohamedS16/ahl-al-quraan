@@ -25,9 +25,21 @@
     font-size: 20px;
 }
 
+.links{
+    display: flex;
+    align-items: center;
+}
+
 .links a{
-    padding: 10px 20px;
+    padding: 10px 10px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.links a svg{
+    margin-left: 5px;
 }
 
 .links a:hover::before{
@@ -45,7 +57,7 @@
         width: 0;
     }
     to{
-        width: 75px;
+        width: 83%;
     }
 }
 

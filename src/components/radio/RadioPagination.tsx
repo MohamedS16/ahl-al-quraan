@@ -1,4 +1,3 @@
-import { useState } from "react"
 import changeNumbersToArabic from "../../utils/changeNumbersToArabic"
 import styles from './radio.module.css'
 

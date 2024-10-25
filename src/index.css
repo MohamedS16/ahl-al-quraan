@@ -47,7 +47,7 @@ nav .active::before{
   bottom: 3px;
   right: 10px;
   height: 3px;
-  width: 75px;
+  width: 83%;
 }
 
 body {
@@ -75,8 +75,80 @@ h1 {
   cursor: pointer;
   transition: border-color 0.25s;
   font-family: "Changa", sans-serif;
-} 
+}
 
+
+/* audio Player Style */
+
+.rhap_volume-container{
+  direction: ltr;
+  color: dodgerblue;
+}
+
+.rhap_volume-container svg{
+  color: dodgerblue;
+}
+
+.rhap_progress-filled{
+  left: 0;
+  background-color: dodgerblue;
+  
+}
+.rhap_volume-indicator{
+  background-color: dodgerblue;
+}
+
+.rhap_main-controls button{
+  color: dodgerblue;
+}
+
+.rhap_time rhap_total-time,
+.rhap_time rhap_current-time{
+  color: black !important;
+}
+
+.rhap_additional-controls{
+  display: none;
+}
+
+.rhap_container{
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 60vw;
+}
+
+.rhap_progress-indicator{
+  background-color: dodgerblue;
+}
+.rhap_progress-section{
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+  align-items: center;
+}
+.rhap_controls-section{
+  display: flex;
+  justify-content: space-evenly;
+  width: auto;
+}
+
+.rhap_volume-controls{
+  max-width: 120px;
+  padding: 0px 20px;
+}
+
+.rhap_progress-container{
+  padding: 0px 10px;
+}
+
+/* .rhap_controls-section{
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */
 
 /* button:hover {
   border-color: #646cff;

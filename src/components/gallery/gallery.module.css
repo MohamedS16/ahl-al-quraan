@@ -1,0 +1,45 @@
+.card{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    align-items: center;
+    justify-content: center;
+}
+
+.card video{
+    object-fit: contain;
+    width: 300px;
+}
+
+.galleryContainer{
+  font-family: "Changa", sans-serif;
+    padding: 100px 50px 50px;
+    background-color: white;
+    display: flex;
+    min-height: 100vh;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100vw;
+}
+
+.galleryContainer button{
+    font-family: "Changa", sans-serif;
+    background-color: dodgerblue;
+    outline: none;
+    border: 1px solid dodgerblue;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+.galleryContainer button:hover{
+    background-color: transparent;
+    color: dodgerblue;
+}
+

@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import React,{ useEffect, useState } from "react"
 import styles from './moshafallswr.module.css'
 import { Link } from "react-router-dom"
 import { CiSearch } from "react-icons/ci";
@@ -48,4 +48,4 @@ const MoshafAllSwr = () => {
   )
 }
 
-export default MoshafAllSwr
+export default React.memo(MoshafAllSwr)

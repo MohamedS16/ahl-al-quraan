@@ -6,7 +6,7 @@ import 'react-h5-audio-player/lib/styles.css';
 import styles from './listen.module.css'
 import fileDownload from 'js-file-download'
 import axios from 'axios';
-import changeNumbersToArabic from '../../utils/changeNumbersToArabic';
+// import changeNumbersToArabic from '../../utils/changeNumbersToArabic';
 
 type par = {
     idd : string,
@@ -59,7 +59,7 @@ const Listen = () => {
                     <h2>{data?.name}</h2>
                     <p>{data?.sora?.moshaf?.name}</p>
                 </div>
-                <h3>{changeNumbersToArabic(`${data?.sora?.id}`)} - {data?.sora?.name} ({data?.sora?.makkia ? 'مكية' : "مدنية"}) </h3>
+                {/* <h3>{changeNumbersToArabic(`${data?.sora?.id}`)} - {data?.sora?.name} ({data?.sora?.makkia ? 'مكية' : "مدنية"}) </h3> */}
                 
                 <div className={styles.audiop}>
                     <AudioPlayer autoPlay={false} volume={0.5} src={`${data?.sora?.moshaf?.server}${param < 10 ? `00${param}` : +param < 100 ? `0${param}` : param}.mp3`} />    

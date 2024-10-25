@@ -21,3 +21,9 @@
     cursor: pointer;
     border-radius: 5px;
 }
+
+@media screen and (max-width : 900px) {
+    .reminder{
+        width: 80%;
+    }
+}

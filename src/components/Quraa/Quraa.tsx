@@ -43,12 +43,11 @@ const Quraa = () => {
                         }
                     }).map((r,idx,arr)=> {
                         return(
-                        arr.length == 0 ?<p> لا يوجد قراء </p> : 
                         r.letter !== arr[idx - 1]?.letter ? 
-                        <>
+                        <React.Fragment key={r.id}>
                         <p className={styles.letter}>{r.letter}</p>
                         <Link to={`${r.id}`} key={r.id}>{r.name}</Link>
-                        </> : <Link to={`${r.id}`} key={r.id}>{r.name}</Link>
+                        </React.Fragment> : <Link to={`${r.id}`} key={r.id}>{r.name}</Link>
                         )
                     }
                     )

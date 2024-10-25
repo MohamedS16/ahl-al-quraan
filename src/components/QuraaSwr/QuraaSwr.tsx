@@ -1,11 +1,12 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Link, Outlet, useParams } from "react-router-dom"
 import styles from './QuraaSwr.module.css'
 import { CiSearch } from "react-icons/ci";
 import { FaPlay } from "react-icons/fa";
 import React from "react";
 import changeNumbersToArabic from "../../utils/changeNumbersToArabic";
+import audioContext from "../audioPlayer/audioContext";
 
 
 type qaree = {
@@ -41,7 +42,8 @@ const QuraaSwr = () => {
     const [rewaya,setRewaya] = useState(0)
     const [search,setSearch] = useState('')
     const params = useParams()
-    const [sora,setSora] : any = useState()
+
+    const audio = useContext(audioContext)
 
     useEffect(()=>{
         axios.get(`https://mp3quran.net/api/v3/reciters?reciter=${params.id}`)
@@ -53,9 +55,6 @@ const QuraaSwr = () => {
     return (
     <section className={styles.quraaswr}>
       <div className={styles.container}>
-        {
-          // loading ? <p>Loading...</p> :
-          <>
             <div className={styles.qardetails}>
               <h1> {reciter?.name} </h1>
             </div>
@@ -84,7 +83,7 @@ const QuraaSwr = () => {
                   }
                   
                 }).map((s)=> +su === s.id && 
-                <Link to={`${s.id}`} className={styles.sora} onClick={()=>setSora({...s,moshaf :reciter?.moshaf[rewaya]})}  key={s.id}>
+                <div className={styles.sora} onClick={()=>audio?.setAudioDetails({name : `${reciter?.name} - سورة ${s.name} - ${reciter?.moshaf[rewaya].name}`,type : 'quraan',url:`${reciter.moshaf[0].server}${+su < 10 ? `00${su}` : +su < 100 ? `0${su}` : su }.mp3` })}  key={s.id}>
                   <div className={styles.soraname}>
                     <FaPlay />
                     <p> {changeNumbersToArabic(`${s.id}`)} - {s.name} </p>  
@@ -92,14 +91,11 @@ const QuraaSwr = () => {
 
                   <p>{s.makkia ? 'مكية' : "مدنية"}</p>
                   {/* <audio src={`${reciter.moshaf[0].server}${+su < 10 ? `00${su}` : +su < 100 ? `0${su}` : su }.mp3`} controls ></audio> */}
-                </Link>
+                </div>
                 ))
               }
             </div>
-            
-            <Outlet context={{name: reciter?.name, sora }} />
-          </>
-        }
+
       </div>
     </section>
   )}

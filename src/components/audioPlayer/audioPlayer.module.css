@@ -1,0 +1,87 @@
+.audioPlayerComponent{
+    position: fixed;
+    font-family: "Changa", sans-serif;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+}
+
+.audioPlayerComponent_audioDetails{
+    border-radius: 30px 30px 0px 0px;
+    background-color: dodgerblue;
+    color: white;
+    width: 100vw;
+    /* height: 50px; */
+    padding: 1px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.audioPlayerComponent_audioDetails>p{
+    max-width: 200px;
+    padding: 0px 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.audioDownload{
+    background-color: white;
+    color: dodgerblue;
+    border: 1px solid white;
+    cursor: pointer;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+    font-family: "Changa", sans-serif;
+    transition: 0.7s;
+}
+
+.audioDownload:hover{
+    background-color: transparent;
+    color: white;
+}
+
+.downHide{
+    position: absolute;
+    top: -30px;
+    cursor: pointer;
+    background-color: dodgerblue;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    right: 50px;
+    outline: none;
+    border : 1px solid dodgerblue;
+    border-radius: 5px 5px 0 0;
+}
+
+@media screen and (max-width : 820px) {
+    .audioPlayerComponent_audioDetails>p{
+        max-width: 90vw; 
+        order: 1;
+        /* background-color: aqua; */
+    }
+
+    .audioPlayerComponent_audioDetails>div{
+        width: 90vw;
+    }
+
+    .audioPlayerComponent_audioDetails{
+        padding-bottom: 10px;
+    }
+    .audioDownload{
+        order: 2;
+    }
+    .audioPlayerComponent_audioDetails>div{
+        order: 3;
+    }
+}
