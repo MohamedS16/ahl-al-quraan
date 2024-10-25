@@ -18,7 +18,7 @@ const DailyAya = () => {
 
     useEffect(()=>{
         let rand = Math.round(Math.random() * 6235) + 1
-        axios.get(`http://api.alquran.cloud/v1/ayah/${rand}`)
+        axios.get(`https://api.alquran.cloud/v1/ayah/${rand}`)
         .then(res=>setAyah(res.data.data))
         .catch(er=>console.log(er))
     },[])
