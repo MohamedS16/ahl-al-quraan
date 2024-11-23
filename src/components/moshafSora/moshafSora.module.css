@@ -112,16 +112,12 @@
 
     .moshafContent{
         width: 100%;
+        padding: 50px 20px;
     }
 
-    /* .changeFontSize{
-        font-size: 18px;
-        right: 10px;
+    .moshafContainer{
+
+        padding: 100px 15px 15px;
     }
-
-    .changeFontSize button{
-        font-size: 20px;
-        padding: 5px 10px;
-
-    } */
+    
 }

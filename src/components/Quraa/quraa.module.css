@@ -81,7 +81,7 @@ justify-content: center;
     border-radius: 5px;
     padding: 5px 10px;
     margin-bottom: 30px;
-    width: 300px;
+    max-width: 300px;
 }
 
 .search input::placeholder {

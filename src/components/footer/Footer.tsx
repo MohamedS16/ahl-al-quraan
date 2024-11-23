@@ -10,10 +10,10 @@ const Footer = () => {
                 <div className={styles.footer_top_right}>
                     <h3> عن الموقع </h3>
                     <ul>
-                        <li><Link to='https://www.mp3quran.net/'> التلاوات و المصحف عن طريق  : MP3 Quraan </Link></li>
-                        <li><Link to='https://aladhan.com/'> مواقيت الصلاة عن طريق  : الاذان </Link></li>
-                        <li><Link to='https://www.freepik.com/'> الصور المرئية عن طريق  : freepik</Link></li>
-                        <li><Link to='http://api.quran-tafseer.com/'> تفسير الايات عن طريق  : Quran Tafseer</Link></li>
+                        <li><Link target='_blank' to='https://www.mp3quran.net/'> التلاوات و المصحف عن طريق  : MP3 Quraan </Link></li>
+                        <li><Link target='_blank' to='https://aladhan.com/'> مواقيت الصلاة عن طريق  : الاذان </Link></li>
+                        <li><Link target='_blank' to='https://www.freepik.com/'> الصور المرئية عن طريق  : freepik</Link></li>
+                        <li><Link target='_blank' to='http://api.quran-tafseer.com/'> تفسير الايات عن طريق  : Quran Tafseer</Link></li>
                     </ul>
                 </div>
                 <div className={styles.footer_top_left}>

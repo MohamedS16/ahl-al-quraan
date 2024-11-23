@@ -56,6 +56,7 @@
     width: 90vw;
     margin-top: 40px;    
     display: flex;
+    flex-wrap: wrap;
     color: black;
     align-items: center;
     justify-content: space-between;
@@ -78,7 +79,7 @@
         border-bottom: 3px solid dodgerblue;
         border-radius: 5px;
         padding: 5px 10px;
-        width: 300px;
+        max-width: 300px;
     }
     
     .search input::placeholder {

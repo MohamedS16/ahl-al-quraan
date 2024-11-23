@@ -175,3 +175,10 @@ h1 {
 h1{
   font-family: 'uthmani';
 } */
+
+@media screen and (max-width : 620px){
+    
+  .rhap_volume-controls {
+      display: none !important;
+  }
+}
