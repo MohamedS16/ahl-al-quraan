@@ -15,6 +15,7 @@ import AudioWrapper from "./components/audioPlayer/AudioWrapper";
 import AudioPlayer from "./components/audioPlayer/AudioPlayer";
 import Gallery from "./components/gallery/Gallery";
 import Loading from "./components/loading/Loading";
+import Landing from "./components/Landing";
 
 const App = () => {
   const [day, setDay] = useState(0);
@@ -26,7 +27,8 @@ const App = () => {
 
   return (
     <>
-    {loaded ? <>
+    <Landing />
+    {/* {loaded ? <>
       <Nav />
       <AudioWrapper>
         <Routes>
@@ -45,7 +47,7 @@ const App = () => {
       {day === 5 && <Reminder />}
       <Footer />
       </> : 
-      <Loading />}
+      <Loading />} */}
     </>
 
   );
