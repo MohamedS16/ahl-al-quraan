@@ -12,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
     "@tailwindcss/vite": "^4.1.17",
+    "@tanstack/react-query": "^5.89.0",
     "axios": "^1.7.2",
     "js-file-download": "^0.4.12",
     "react": "^18.3.1",

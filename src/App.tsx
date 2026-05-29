@@ -28,7 +28,7 @@ const App = () => {
   return (
     <>
     <Landing />
-    {/* {loaded ? <>
+    {loaded ? <>
       <Nav />
       <AudioWrapper>
         <Routes>
@@ -47,7 +47,7 @@ const App = () => {
       {day === 5 && <Reminder />}
       <Footer />
       </> : 
-      <Loading />} */}
+      <Loading />}
     </>
 
   );
