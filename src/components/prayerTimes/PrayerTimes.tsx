@@ -1,56 +1,67 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
-import styles from './prayertimes.module.css'
-import {changeTimeToArabic} from "../../utils/changeNumbersToArabic"
-
-type prayerDetails = {
-    "timings": {
-        "Fajr": string,
-        "Sunrise": string,
-        "Dhuhr": string,
-        "Asr": string,
-        "Maghrib": string,
-        "Isha": string
-    },
-    "date": {
-        "hijri": {
-            "date": string,
-            "weekday": {
-                "ar": string
-            },
-            "month": {
-                "ar": string
-            },
-            "year": string,
-        },
-    }}
+import changeNumbersToArabic from "../../utils/changeNumbersToArabic";
+import { MapPin } from "lucide-react";
+import { prayerTimesParams } from "../../types/prayerTimes.types";
+import { usePrayerTimes } from "../../api/prayerTimes/prayerTimes.queries";
+import {getPrayerNameArabic} from "../../utils/changePrayerNameToArabic";
 
 const PrayerTimes = () => {
-    const [prayers, setPrayers] = useState <prayerDetails>()
+    
+    const params : prayerTimesParams = {
+        lat: 30.0444,
+        lng: 31.2357,
+        method: "Egyptian"
+    }
+    
+    const {data: prayers, isLoading, error} = usePrayerTimes(params);
 
-    useEffect(() => {
-        const year = new Date().getFullYear()
-        const month = String(new Date().getMonth() + 1).padStart(2, '0')
-        const day = new Date().getDate().toString().padStart(2, '0')
+    if (isLoading) {
+        return <p>Loading...</p>;
+    }
+    if (error) {
+        return <p>Error fetching prayer times.</p>;
+    }
 
-        axios.get(`https://api.aladhan.com/v1/timingsByCity/${day}-${month}-${year}?city=cairo&country=Egypt&method=5`)
-            .then((resp) =>setPrayers(resp.data.data))
-            .catch(er => console.log(er))
-    }, [])
+    const NEXT = prayers?.data?.current_status?.next_prayer;
     return (
-        <section className={styles.prayerTimes}>
-            <h2> مواقيت الصلاة - القاهرة </h2>
-            <div className={styles.prayerTimes_content}>
-                <div className={styles.prayerTimes_prayer}> <p> الفجر </p>  <p> {changeTimeToArabic(`${prayers?.timings.Fajr}`)} </p></div>
-                <div className={styles.prayerTimes_prayer}> <p> الشروق </p>  <p> {changeTimeToArabic(`${prayers?.timings.Sunrise}`)} </p></div>
-                <div className={styles.prayerTimes_prayer}> <p> الظهر </p>  <p> {changeTimeToArabic(`${prayers?.timings.Dhuhr}`)} </p></div>
-                <div className={styles.prayerTimes_prayer}> <p> العصر </p>  <p> {changeTimeToArabic(`${prayers?.timings.Asr}`)} </p></div>
-                <div className={styles.prayerTimes_prayer}> <p> المغرب </p>  <p> {changeTimeToArabic(`${prayers?.timings.Maghrib}`)} </p></div>
-                <div className={styles.prayerTimes_prayer}> <p> العشاء </p>  <p> {changeTimeToArabic(`${prayers?.timings.Isha}`)} </p></div>
+    <section className="mx-auto max-w-6xl px-5 py-16 md:py-20">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-4 sm:flex sm:justify-between">
+        <div className="min-w-0">
+          <h2 className="text-2xl font-extrabold text-ink sm:text-3xl">مواقيت الصلاة</h2>
+          <p className="mt-2 flex items-center gap-1.5 text-sm font-semibold text-muted-foreground">
+            <MapPin className="size-4 shrink-0" />
+            القاهرة، مصر
+          </p>
+        </div>
+        <span className="shrink-0 rounded-full bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground">
+          الصلاة القادمة: { NEXT && getPrayerNameArabic(NEXT)}
+        </span>
+      </div>
 
-            </div>
-        </section>
-    )
-}
+      <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {prayers?.data?.prayer_times && Object.entries(prayers.data.prayer_times).map(([name, time]) => {
+            const active = name === NEXT;
+            
+            return (
+            <div
+              key={name}
+              className={`flex items-center justify-between rounded-2xl border px-5 py-4 ${
+                active
+                  ? "border-primary bg-primary text-primary-foreground shadow-(--shadow-soft)"
+                  : "border-border bg-card text-ink"
+              }`}
+            >
+              <span className="text-base font-extrabold">{getPrayerNameArabic(name)} </span>
+              <span
+                className={`text-lg font-bold tabular-nums ${active ? "" : "text-primary"}`}
+              >
+                {changeNumbersToArabic(time)}</span></div>
+        )}
+        )}
+      </div>
 
-export default PrayerTimes
+
+    </section>
+  );
+};
+
+export default PrayerTimes;

@@ -1,20 +1,16 @@
-const arabicNums : string[] = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩']
+const ARABIC_NUMBERS : string[] = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩']
 
-const changeNumbersToArabic: (num : string)=>string = (num)=>{
-    const splitNums = num.split('')
-    const arabicNumbers : string[] = []
-    splitNums.forEach((n : string)=>arabicNumbers.push(arabicNums[+n]))
-    return arabicNumbers.join('')
-}
+export const changeNumbersToArabic = (value: string | number): string => {
+  return String(value)
+    .split("")
+    .map((char) => ARABIC_NUMBERS[Number(char)] ?? char)
+    .join("");
+};
 
-export const changeTimeToArabic: (num : string)=>string =(num)=>{
-    const splitNums = num.split('')
-    const arabicNumbers : string[] = []
-    splitNums.forEach((n : string)=>{arabicNumbers.push(arabicNums[+n])})
-    arabicNumbers[2] = arabicNumbers[0] + arabicNumbers[1] 
-    arabicNumbers[1] = ' : '
-    arabicNumbers[0] = arabicNumbers[3] + arabicNumbers[4] 
-    return arabicNumbers.slice(0,3).join('')
-}
+export const changeTimeToArabic = (time: string): string => {
+  const [hours, minutes] = time.split(":");
 
-export default changeNumbersToArabic
+  return `${changeNumbersToArabic(hours)} : ${changeNumbersToArabic(minutes)}`;
+};
+
+export default changeNumbersToArabic;

@@ -1,35 +1,68 @@
-import { NavLink } from 'react-router-dom'
-import styles from './nav.module.css'
-import { CiMenuFries } from "react-icons/ci";
-import { useState } from 'react';
-import { FaHome } from "react-icons/fa";
-import { RiBookFill, RiHeadphoneFill } from "react-icons/ri";
-import { MdPermMedia } from "react-icons/md";
-import { FaRadio } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { BookOpen, Headphones, Home, Menu, Radio, Sparkles, X } from "lucide-react";
 
-const Nav = () => {
+const links = [
+  { label: "الرئيسية", to: "/", icon: Home },
+  { label: "المصحف", to: "/", icon: BookOpen },
+  { label: "التلاوات", to: "/", icon: Headphones },
+  { label: "الراديو", to: "/", icon: Radio },
+  { label: "اسلاميات", to: "/", icon: Sparkles },
+];
 
-    const [navState, setNavState] = useState(true)
+export function Nav() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <nav className={styles.nav}>
-        <div className={styles.container}>
-            <p>اهل القران</p>
-            <div className={styles.navContent}>
-                <div onClick={()=>setNavState(true)} className={`${styles.links} ${navState ? styles.hide : ''}` }>
-                    <NavLink to='/'> <FaHome /> الرئيسية </NavLink>
-                    <NavLink to='/moshaf'> <RiBookFill />  المصحف </NavLink>
-                    <NavLink to='/quraa'> <RiHeadphoneFill /> التلاوات </NavLink>
-                    <NavLink to='/radio'> <FaRadio />  الراديو </NavLink>
-                    <NavLink to='/gallery'> <MdPermMedia /> اسلاميات </NavLink>
-                </div>
-                <div className={styles.toggler}>
-                    <CiMenuFries onClick={()=>setNavState(!navState)} style={{fontSize: '40px', cursor: 'pointer'}} />
-                </div>
-            </div>
-        </div>
-    </nav>
-  )
-}
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
+      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 md:flex md:justify-between">
+        <Link to="/" className="flex min-w-0 items-center gap-2">
+          <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground">
+            <BookOpen className="size-4" />
+          </span>
+          <span className="truncate text-lg font-extrabold tracking-tight text-ink">
+            أهل القرآن
+          </span>
+        </Link>
 
-export default Nav
+        <nav className="hidden items-center gap-1 md:flex">
+          {links.map(({ label, to, icon: Icon }) => (
+            <Link
+              key={label}
+              to={to}
+              className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:bg-secondary hover:text-ink"
+            >
+              <Icon className="size-4" />
+              {label}
+            </Link>
+          ))}
+        </nav>
+
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label="القائمة"
+          className="grid size-9 place-items-center rounded-lg border border-border text-ink md:hidden"
+        >
+          {open ? <X className="size-4" /> : <Menu className="size-4" />}
+        </button>
+      </div>
+
+      {open && (
+        <nav className="border-t border-border/60 px-5 py-2 md:hidden">
+          {links.map(({ label, to, icon: Icon }) => (
+            <Link
+              key={label}
+              to={to}
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 rounded-lg px-2 py-2.5 text-sm font-semibold text-muted-foreground hover:text-ink"
+            >
+              <Icon className="size-4" />
+              {label}
+            </Link>
+          ))}
+        </nav>
+      )}
+    </header>
+  );
+}

@@ -1,36 +1,51 @@
-import { Link } from 'react-router-dom'
-import styles from './footer.module.css'
-import { MdEmail } from "react-icons/md";
-import { FaLinkedinIn,FaGithub } from "react-icons/fa";
+import { Mail } from "lucide-react";
 
-const Footer = () => {
-    return (
-        <footer className={styles.footer}>
-            <div className={styles.footer_top}>
-                <div className={styles.footer_top_right}>
-                    <h3> عن الموقع </h3>
-                    <ul>
-                        <li><Link target='_blank' to='https://www.mp3quran.net/'> التلاوات و المصحف عن طريق  : MP3 Quraan </Link></li>
-                        <li><Link target='_blank' to='https://aladhan.com/'> مواقيت الصلاة عن طريق  : الاذان </Link></li>
-                        <li><Link target='_blank' to='https://www.freepik.com/'> الصور المرئية عن طريق  : freepik</Link></li>
-                        <li><Link target='_blank' to='http://api.quran-tafseer.com/'> تفسير الايات عن طريق  : Quran Tafseer</Link></li>
-                    </ul>
-                </div>
-                <div className={styles.footer_top_left}>
-                    <h3>تواصل معي</h3>
-                    <Link to='https://www.linkedin.com/in/mohameds162' target='_blank'><FaLinkedinIn /></Link>
-                    <Link to='mailto:mohamedsameh162000@gmail.com' target='_blank'><MdEmail /></Link>
-                    <Link to='https://github.com/MohamedS16' target='_blank'><FaGithub /></Link>
-                    
-                    
-                </div>
-            </div>
-            <div className={styles.footer_line}></div>
-            <div className={styles.footer_bottom}>
-                <p> تم تطوير الموقع عن طريق <Link to='https://www.linkedin.com/in/mohameds162' target='_blank'>محمد سامح</Link> </p>
-            </div>
-        </footer>
-    )
+const sources = [
+  "التلاوات والمصحف عن طريق: MP3 Quran",
+  "مواقيت الصلاة عن طريق: الأذان",
+  "الصور عن طريق: Freepik",
+  "تفسير الآيات عن طريق: Quran Tafseer",
+];
+
+const socials = [
+  { icon: Mail, label: "GitHub", href: "#" },
+  { icon: Mail, label: "البريد", href: "#" },
+  { icon: Mail, label: "LinkedIn", href: "#" },
+];
+
+export function Footer() {
+  return (
+    <footer className="bg-primary text-primary-foreground">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-2">
+        <div>
+          <h2 className="text-lg font-extrabold">عن الموقع</h2>
+          <ul className="mt-4 space-y-2 text-sm text-primary-foreground/85">
+            {sources.map((s) => (
+              <li key={s}>{s}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="md:text-left">
+          <h2 className="text-lg font-extrabold">تواصل معي</h2>
+          <div className="mt-4 flex gap-3 md:justify-start">
+            {socials.map(({ icon: Icon, label, href }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                className="grid size-10 place-items-center rounded-xl bg-primary-foreground/15 transition-colors hover:bg-primary-foreground/25"
+              >
+                <Icon className="size-4" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="border-t border-primary-foreground/20 py-5 text-center text-xs text-primary-foreground/85">
+        تم تطوير الموقع عن طريق محمد سامح
+      </div>
+    </footer>
+  );
 }
-
-export default Footer
