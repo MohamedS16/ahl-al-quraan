@@ -3,6 +3,5 @@ import {prayerTimesResponse, prayerTimesParams} from "../../types/prayerTimes.ty
 
 export const getPrayerTimes = async (params: prayerTimesParams): Promise<prayerTimesResponse> => {
   const { data } = await prayer_times_api.get<prayerTimesResponse>("/", { params });
-
   return data;
 };

@@ -19,10 +19,16 @@ const quran_api = axios.create({
     headers : {"Content-Type": "application/json"}
 });
 
+const moshaf_all_swr_api = axios.create({
+    baseURL : import.meta.env.VITE_MOSHAF_ALL_SWR_BASE_URL,
+    headers : {"Content-Type": "application/json"}
+})
+
 
 export {
     mp3_quran_api,
     tafseer_api,
     prayer_times_api,
-    quran_api
+    quran_api,
+    moshaf_all_swr_api
 }

@@ -1,5 +1,5 @@
-import changeNumbersToArabic from "../../utils/changeNumbersToArabic"
-import { useAyaForYou } from "../../api/ayaForYou/ayaForYou.queries"
+import changeNumbersToArabic from "../utils/changeNumbersToArabic"
+import { useAyaForYou } from "../api/ayaForYou/ayaForYou.queries"
 
 export const DailyAya = () => {
 

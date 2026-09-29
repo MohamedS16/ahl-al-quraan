@@ -1,8 +1,8 @@
-import changeNumbersToArabic from "../../utils/changeNumbersToArabic";
+import changeNumbersToArabic from "../utils/changeNumbersToArabic";
 import { MapPin } from "lucide-react";
-import { prayerTimesParams } from "../../types/prayerTimes.types";
-import { usePrayerTimes } from "../../api/prayerTimes/prayerTimes.queries";
-import {getPrayerNameArabic} from "../../utils/changePrayerNameToArabic";
+import { prayerTimesParams } from "../types/prayerTimes.types";
+import { usePrayerTimes } from "../api/prayerTimes/prayerTimes.queries";
+import {getPrayerNameArabic} from "../utils/changePrayerNameToArabic";
 
 const PrayerTimes = () => {
     

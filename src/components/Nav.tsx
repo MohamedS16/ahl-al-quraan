@@ -4,10 +4,10 @@ import { BookOpen, Headphones, Home, Menu, Radio, Sparkles, X } from "lucide-rea
 
 const links = [
   { label: "الرئيسية", to: "/", icon: Home },
-  { label: "المصحف", to: "/", icon: BookOpen },
-  { label: "التلاوات", to: "/", icon: Headphones },
-  { label: "الراديو", to: "/", icon: Radio },
-  { label: "اسلاميات", to: "/", icon: Sparkles },
+  { label: "المصحف", to: "/moshaf", icon: BookOpen },
+  { label: "التلاوات", to: "/talaat", icon: Headphones },
+  { label: "الراديو", to: "/radio", icon: Radio },
+  { label: "اسلاميات", to: "/islam", icon: Sparkles },
 ];
 
 export function Nav() {

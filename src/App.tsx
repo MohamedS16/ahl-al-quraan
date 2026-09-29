@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-import {Nav} from "./components/nav/Nav";
+import "./styles.css";
+import {Nav} from "./components/Nav";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 
 import Quraa from "./components/Quraa/Quraa";
 import QuraaSwr from "./components/QuraaSwr/QuraaSwr";
-import MoshafAllSwr from "./components/moshafAllSwr/MoshafAllSwr";
+import {MoshafAllSwr} from "./components/MoshafAllSwr";
 import MoshafSora from "./components/moshafSora/MoshafSora";
 import Reminder from "./components/reminder/Reminder";
-import {Footer} from "./components/footer/Footer";
+import {Footer} from "./components/Footer";
 import Tafseer from "./components/tafseer/Tafseer";
 import Radio from "./components/radio/Radio";
 import AudioWrapper from "./components/audioPlayer/AudioWrapper";

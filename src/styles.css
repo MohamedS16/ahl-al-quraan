@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+
 
 @custom-variant dark (&:is(.dark *));
 
@@ -101,8 +104,6 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
-    direction: rtl;
-    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
 }
@@ -134,4 +135,9 @@
 @utility quran {
   font-family: var(--font-quran);
   line-height: 2.1;
+}
+
+body{
+  direction: rtl;
+  overflow-x: hidden;
 }

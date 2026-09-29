@@ -1,7 +1,7 @@
-import {DailyAya} from "../components/dailyAya/DailyAya"
+import {DailyAya} from "../components/DailyAya"
 import { Features } from "../components/features"
-import {Landing} from "../components/landing/Landing"
-import PrayerTimes from "../components/prayerTimes/PrayerTimes"
+import {Landing} from "../components/Landing"
+import PrayerTimes from "../components/PrayerTimes"
 
 const Home = () => {
   return (
