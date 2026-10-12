@@ -22,7 +22,7 @@ export const DailyAya = () => {
         {
             ayah?.data?.verse.arabic ?
             <>
-            <p className="quran mt-10 text-3xl text-ink sm:text-4xl">{ayah?.data?.verse.arabic}</p>
+            <p className="quran mt-10 text-3xl text-ink sm:text-4xl leading-loose">{ayah?.data?.verse.arabic}</p>
             
                 <p className="mt-10 text-sm font-semibold text-muted-foreground">{"سورة " + ayah?.data?.surah?.name_arabic + " الاية رقم " + changeNumbersToArabic(`${ayah?.data?.verse.ayah}`)}</p>
 

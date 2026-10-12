@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Quraa from "./components/Quraa/Quraa";
 import QuraaSwr from "./components/QuraaSwr/QuraaSwr";
 import {MoshafAllSwr} from "./components/MoshafAllSwr";
-import MoshafSora from "./components/moshafSora/MoshafSora";
+import {SurahPage} from "./components/MoshafSora";
 import Reminder from "./components/reminder/Reminder";
 import {Footer} from "./components/Footer";
 import Tafseer from "./components/tafseer/Tafseer";
@@ -38,7 +38,7 @@ const App = () => {
           <Route path="/radio" element={<Radio />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/moshaf" element={<MoshafAllSwr />} />
-          <Route path="/moshaf/:id" element={<MoshafSora />}>
+          <Route path="/moshaf/:id" element={<SurahPage />}>
             <Route path=":aya" element={<Tafseer />} />
           </Route>
         </Routes>

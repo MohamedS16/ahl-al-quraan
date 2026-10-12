@@ -13,4 +13,8 @@ export const changeTimeToArabic = (time: string): string => {
   return `${changeNumbersToArabic(hours)} : ${changeNumbersToArabic(minutes)}`;
 };
 
+export const toArabicNumber = (value: number) => {
+  return new Intl.NumberFormat("ar-EG", { useGrouping: false }).format(value);
+};
+
 export default changeNumbersToArabic;

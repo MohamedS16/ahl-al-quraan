@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { useNavigate } from "react-router-dom";
 import { useGetAllMoshafSwr } from "../api/MoshafAllSwr/moshafAllSwr.queries";
+import { toArabicNumber } from "../utils/changeNumbersToArabic";
 
 // export const Route = createFileRoute("/mushaf")({
 //   head: () => ({
@@ -35,10 +36,6 @@ const filters: {visibleName: string; value: string}[] = [
     value: "madinah"
   }
 ];
-
-function toArabicNumber(value: number) {
-  return new Intl.NumberFormat("ar-EG", { useGrouping: false }).format(value);
-}
 
 export const MoshafAllSwr = () => {
   const [query, setQuery] = useState("");
@@ -130,7 +127,7 @@ export const MoshafAllSwr = () => {
                       {toArabicNumber(surah.number)}
                     </span>
                     <div className="min-w-0">
-                      <h2 className="truncate font-quran text-2xl font-bold text-ink">
+                      <h2 className="truncate font-quran text-2xl font-bold text-ink leading-loose">
                         {surah.name_arabic}
                       </h2>
                       <p className="mt-0.5 text-xs text-muted-foreground">
