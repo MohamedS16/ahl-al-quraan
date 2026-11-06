@@ -1,12 +1,4 @@
-export type Surah = {
-  number: number;
-  name: string;
-  revelation_order: number;
-  bismillah_pre: boolean;
-  revelation: "مكية" | "مدنية";
-  verses_count: number;
-  pages: [number, number];
-};
+import { Surah } from "./../types/moshafSora.types";
 
 export const surahs: Surah[] = [
   {

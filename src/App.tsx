@@ -4,8 +4,8 @@ import {Nav} from "./components/Nav";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 
-import Quraa from "./components/Quraa/Quraa";
-import QuraaSwr from "./components/QuraaSwr/QuraaSwr";
+import {QuraaPage} from "./components/Quraa";
+import {QuraaSwr} from "./components/QuraaSwr";
 import {MoshafAllSwr} from "./components/MoshafAllSwr";
 import {SurahPage} from "./components/MoshafSora";
 import Reminder from "./components/reminder/Reminder";
@@ -16,6 +16,8 @@ import AudioWrapper from "./components/audioPlayer/AudioWrapper";
 import AudioPlayer from "./components/audioPlayer/AudioPlayer";
 import Gallery from "./components/gallery/Gallery";
 import Loading from "./components/loading/Loading";
+import { ReciterContextLayout } from "./context/reciterContext/reciterContext";
+import { ScrollToTOp } from "./components/ScrollToTop";
 
 const App = () => {
   const [day, setDay] = useState(0);
@@ -29,12 +31,14 @@ const App = () => {
     <>
     {loaded ? <>
       <Nav />
+      <ScrollToTOp />
       <AudioWrapper>
         <Routes>
           <Route path="/" element={<Home />} />
-
-          <Route path="/quraa" element={<Quraa />} />
-          <Route path="/quraa/:id" element={<QuraaSwr />} />
+          <Route element={<ReciterContextLayout />}>
+            <Route path="/quraa" element={<QuraaPage />} />
+            <Route path="/quraa/:id" element={<QuraaSwr />} />
+          </Route>
           <Route path="/radio" element={<Radio />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/moshaf" element={<MoshafAllSwr />} />
@@ -42,6 +46,7 @@ const App = () => {
             <Route path=":aya" element={<Tafseer />} />
           </Route>
         </Routes>
+
         <AudioPlayer />
       </AudioWrapper>
       {day === 5 && <Reminder />}

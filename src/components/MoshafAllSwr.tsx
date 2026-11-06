@@ -1,8 +1,8 @@
 import { Search, X } from "lucide-react";
 import { useMemo, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { cn } from "./../lib/utils";
 import { useNavigate } from "react-router-dom";
 import { toArabicNumber } from "../utils/changeNumbersToArabic";
 import {surahs as surahsData } from './../data/surahs';

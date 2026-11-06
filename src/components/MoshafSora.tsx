@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import {
   ArrowLeft,
@@ -10,19 +9,9 @@ import {
   Plus,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Button } from "./ui/button";
 import { useMoshafSora } from "./../api/MoshafSurah/moshafSora.queries";
 import {
-  MoshafSora,
-  MoshafSoraDetails,
   MoshafSorafVerses,
 } from "./../types/moshafSora.types";
 import { surahs } from "./../data/surahs";
@@ -208,7 +197,7 @@ export function SurahPage() {
       surahNumber={surahNumber ? Number(surahNumber) : 1}
       surahName={surah.name_arabic}
       ayahNumber={selectedAyah}
-        ayahText={surah?.verses.find((ayah) => ayah.ayah === selectedAyah)?.arabic || ""}
+      ayahText={surah?.verses.find((ayah) => ayah.ayah === selectedAyah)?.arabic || ""}
       open={selectedAyah !== null}
       onOpenChange={(open) => {
           if (!open) setSelectedAyah(null);
