@@ -1,5 +1,5 @@
 export type prayerTimesResponse = {
-  data:{
+
     success: boolean,
     service: string,
     data: {
@@ -52,7 +52,7 @@ export type prayerTimesResponse = {
       sadaqah_jariah: string,
       usage: string
     }
-  }
+
 };
 
 export type prayerTimesParams ={

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Headphones, Mic2, Search, X } from "lucide-react";
 import { useMemo, useState } from "react";
-import { Input } from "@/components/ui/input";
+import { Input } from "./../components/ui/input";
 import { singleReciter } from "./../types/reciters.types";
-import { useGetReciters } from "@/api/reciters/reciters.queries";
-import { useReciterContext } from "@/context/reciterContext/reciterContext";
+import { useGetReciters } from "./../api/reciters/reciters.queries";
+import { useReciterContext } from "./../context/reciterContext/reciterContext";
 
 const normalize = (s: string) => s.replace(/[أإآ]/g, "ا").replace(/ة/g, "ه").replace(/ى/g, "ي");
 

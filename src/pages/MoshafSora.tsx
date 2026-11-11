@@ -8,7 +8,7 @@ import {
   Minus,
   Plus,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "./../components/ui/button";
 import { useMoshafSora } from "./../api/MoshafSurah/moshafSora.queries";
 import {
@@ -22,16 +22,12 @@ const basmala = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّ
 
 export function SurahPage() {
   const { id: surahNumber } = useParams();
-  const { data: surah, isLoading, isFetching, isError, refetch } = useMoshafSora(surahNumber || "1");
+  const { data: surah, isLoading} = useMoshafSora(surahNumber || "1");
   const [fontSize, setFontSize] = useState(32);
-  const [selectedAyah, setSelectedAyah] = useState<QuranAyah | null>(null);
+  const [selectedAyah, setSelectedAyah] = useState<number | null>(null);
 
   if (!isLoading && !surah) {
     return <MissingSurah />;
-  }
-
-  if (isError) {
-    return <ReadingError refetch={refetch} />;
   }
 
   if (isLoading) {
@@ -193,7 +189,7 @@ export function SurahPage() {
       surahNumber={surahNumber ? Number(surahNumber) : 1}
       surahName={surah.name_arabic}
       ayahNumber={selectedAyah}
-      ayahText={surah?.verses.find((ayah) => ayah.ayah === selectedAyah)?.arabic || ""}
+      ayahText={surah?.verses.find((ayah :MoshafSorafVerses) => ayah.ayah === selectedAyah)?.arabic || ""}
       open={selectedAyah !== null}
       onOpenChange={(open) => {
           if (!open) setSelectedAyah(null);
@@ -232,26 +228,12 @@ function MissingSurah() {
         <p className="mt-2 text-sm text-muted-foreground">
           اختر سورة صحيحة من فهرس المصحف.
         </p>
-        <Button asChild className="mt-6">
+        <Button className="mt-6">
           <Link to="/mushaf">
             العودة إلى الفهرس <ArrowLeft />
           </Link>
         </Button>
       </div>
-    </div>
-  );
-}
-
-function ReadingError(refetch: () => void) {
-  return (
-    <div className="py-16 text-center">
-      <p className="font-bold text-ink">تعذّر تحميل نص السورة</p>
-      <p className="mt-2 text-sm text-muted-foreground">
-        تحقق من اتصالك ثم حاول مرة أخرى.
-      </p>
-      <Button className="mt-5" onClick={refetch}>
-        إعادة المحاولة
-      </Button>
     </div>
   );
 }

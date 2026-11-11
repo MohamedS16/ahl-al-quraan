@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
+} from "./ui/dialog";
 import { tafsserTypes } from './../types/tafseer.types';
 import {
   Select,
@@ -13,7 +13,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "./ui/select";
 import {toArabicNumber} from "../utils/changeNumbersToArabic";
 import { useGetAyahTafseer } from "../api/ayaTafseer/ayaTafseer.queries";
 import { useState } from "react";
@@ -42,7 +42,7 @@ export const TafsirDialog = ({
   const [editionId, setEditionId] = useState<tafsserTypes>(tafsirEditions[0]!.id || "muyassar");
   const edition = tafsirEditions.find((item) => item.id === editionId) ?? tafsirEditions[0]!;
 
-    const { data: tafsir, isLoading, isFetching, isError, refetch } = useGetAyahTafseer(
+    const { data: tafsir, isLoading } = useGetAyahTafseer(
       editionId,
       surahNumber,
       ayahNumber
@@ -50,7 +50,7 @@ export const TafsirDialog = ({
 
   return (
 
-    <Dialog open={open} onOpenChange={onOpenChange} className="max-w-2xl min-w-xl">
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         dir="rtl"
         className="max-h-[85vh] overflow-y-auto rounded-md p-0"
@@ -58,7 +58,14 @@ export const TafsirDialog = ({
         <DialogHeader className="border-b border-border bg-secondary/45 px-6 py-5 text-right sm:text-right">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="text-xs font-extrabold text-gold mt-5">{edition.label}</p>
-            <Select value={edition.label} onValueChange={setEditionId}>
+              <Select
+                value={edition.label}
+                onValueChange={(value) => {
+                  if (value !== null) {
+                    setEditionId(value as tafsserTypes);
+                  }
+                }}
+              >              
               <SelectTrigger className="h-8 w-44 text-xs font-bold" aria-label="اختيار التفسير">
                 <SelectValue placeholder="اختر التفسير" />
               </SelectTrigger>

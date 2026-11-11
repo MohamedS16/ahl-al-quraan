@@ -7,7 +7,10 @@ import { type IslamicVideo } from "../types/gallery.types";
 
 export const Gallery = () => {
   const {data: gallery, isLoading} = useGetGallery();
-  let islamicVideos = !isLoading && gallery ? Object.values(gallery).flatMap((videos : IslamicVideo[]) => videos.map((video: IslamicVideo) => ({...video}))) : [];
+  const islamicVideos: IslamicVideo[] =
+  !isLoading && gallery
+    ? Object.values(gallery).flat()
+    : [];
 
   const [query, setQuery] = useState("");
   const [selectedVideo, setSelectedVideo] = useState<IslamicVideo | null>(null);

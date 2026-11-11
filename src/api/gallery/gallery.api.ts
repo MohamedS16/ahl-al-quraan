@@ -1,8 +1,7 @@
 import { gallery_api } from "./../api";
 import { type IslamicVideo } from "../../types/gallery.types";
 
-type GalleryResponse = {tadabor: Record<string, IslamicVideo[]>};
-// type GalleryResponse = Record<string, IslamicVideo[]>;
+type GalleryResponse = Record<string, IslamicVideo[]>;
 
 export const getGallery = async () : Promise<GalleryResponse>=>{
     const response = await gallery_api.get("/");
