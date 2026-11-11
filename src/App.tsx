@@ -11,9 +11,9 @@ import {SurahPage} from "./components/MoshafSora";
 import Reminder from "./components/reminder/Reminder";
 import {Footer} from "./components/Footer";
 import Tafseer from "./components/tafseer/Tafseer";
-import Radio from "./components/radio/Radio";
+import { RadioPage } from "./components/Radio";
 import AudioWrapper from "./components/audioPlayer/AudioWrapper";
-import AudioPlayer from "./components/audioPlayer/AudioPlayer";
+import {AudioPlayer} from "./components/audioPlayer/AudioPlayer";
 import Gallery from "./components/gallery/Gallery";
 import Loading from "./components/loading/Loading";
 import { ReciterContextLayout } from "./context/reciterContext/reciterContext";
@@ -39,7 +39,7 @@ const App = () => {
             <Route path="/quraa" element={<QuraaPage />} />
             <Route path="/quraa/:id" element={<QuraaSwr />} />
           </Route>
-          <Route path="/radio" element={<Radio />} />
+          <Route path="/radio" element={<RadioPage />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/moshaf" element={<MoshafAllSwr />} />
           <Route path="/moshaf/:id" element={<SurahPage />}>

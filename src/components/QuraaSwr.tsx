@@ -5,7 +5,7 @@ import {
   Search,
   X,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Input } from "./ui/input";
 import {
   Select,
@@ -19,11 +19,14 @@ import { cn } from "./../lib/utils";
 import { useReciterContext } from "../context/reciterContext/reciterContext";
 import { toArabicNumber } from './../utils/changeNumbersToArabic';
 import { Surah } from './../types/moshafSora.types';
+import { useAudio } from "./audioPlayer/audioContext";
 
 export const QuraaSwr = () => {
   const { value: reciter } = useReciterContext();
   const [rewaya, setRewaya] = useState<number>(0);
   const [query, setQuery] = useState("");
+
+  const { setAudioDetails } = useAudio();
 
   const surahList = useMemo(()=>(surahs.filter((s) => (reciter?.moshaf[rewaya].surah_list.split(",").map(Number) ?? []).includes(s.number))), [reciter, rewaya]);
 
@@ -35,11 +38,6 @@ export const QuraaSwr = () => {
         (!q || s.name.includes(q) || String(s.number) === q || toArabicNumber(s.number) === q),
     );
   }, [surahList, query]);
-  
-  useEffect(()=>{
-    console.log("surahList", surahList);
-    console.log("reciter", reciter);
-  },[surahList])
 
   return (
     <>
@@ -113,7 +111,12 @@ export const QuraaSwr = () => {
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {visible.map((s : Surah) => {
               return (
-                <li key={s.number}>
+                <li key={s.number} onClick={()=>setAudioDetails(
+                  {
+                    name: `${s.name} - ${reciter?.name} - ${reciter?.moshaf[rewaya].name}`,
+                    url:`${reciter?.moshaf[rewaya].server}${+s.number < 10 ? `00${s.number}` : +s.number < 100 ? `0${s.number}` : s.number }.mp3`
+                  }
+                    )} className="cursor-pointer">
                   <div className={
                       "cursor-pointer group flex w-full items-center gap-3 rounded-md border bg-card p-3 text-right transition hover:border-primary/40 hover:shadow-(--shadow-soft) border-border"
                     }
