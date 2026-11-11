@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/select";
 import {toArabicNumber} from "../utils/changeNumbersToArabic";
 import { useGetAyahTafseer } from "../api/ayaTafseer/ayaTafseer.queries";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const TafsirDialog = ({
   surahNumber,
@@ -47,11 +47,6 @@ export const TafsirDialog = ({
       surahNumber,
       ayahNumber
     );
-
-    useEffect(()=>{
-        console.log(tafsir)
-        console.log(surahNumber,ayahNumber)
-    },[tafsir,surahNumber,ayahNumber])
 
   return (
 

@@ -44,6 +44,11 @@ const radio_api = axios.create({
     headers: {"Content-Type": "application/json"}
 })
 
+const gallery_api = axios.create({
+    baseURL: import.meta.env.VITE_GALLERY_BASE_URL,
+    headers: {"Content-Type": "application/json"}
+});
+
 export {
     mp3_quran_api,
     tafseer_api,
@@ -53,5 +58,6 @@ export {
     moshaf_sora_api,
     ayah_tafseer_api,
     reciters_api,
-    radio_api
+    radio_api,
+    gallery_api
 }

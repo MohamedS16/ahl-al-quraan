@@ -9,14 +9,14 @@ import {
   Plus,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "./../components/ui/button";
 import { useMoshafSora } from "./../api/MoshafSurah/moshafSora.queries";
 import {
   MoshafSorafVerses,
 } from "./../types/moshafSora.types";
 import { surahs } from "./../data/surahs";
 import { toArabicNumber } from "../utils/changeNumbersToArabic";
-import { TafsirDialog } from "./TafseerDialog";
+import { TafsirDialog } from "./../components/TafseerDialog";
 
 const basmala = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ";
 
@@ -25,10 +25,6 @@ export function SurahPage() {
   const { data: surah, isLoading, isFetching, isError, refetch } = useMoshafSora(surahNumber || "1");
   const [fontSize, setFontSize] = useState(32);
   const [selectedAyah, setSelectedAyah] = useState<QuranAyah | null>(null);
-
-  useEffect(() => {
-    console.log(surah);
-  }, [surah]);
 
   if (!isLoading && !surah) {
     return <MissingSurah />;

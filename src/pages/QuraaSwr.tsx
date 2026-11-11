@@ -6,20 +6,20 @@ import {
   X,
 } from "lucide-react";
 import { useMemo, useState } from "react";
-import { Input } from "./ui/input";
+import { Input } from "./../components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
+} from "./../components/ui/select";
 import { surahs } from "./../data/surahs";
 import { cn } from "./../lib/utils";
 import { useReciterContext } from "../context/reciterContext/reciterContext";
 import { toArabicNumber } from './../utils/changeNumbersToArabic';
 import { Surah } from './../types/moshafSora.types';
-import { useAudio } from "./audioPlayer/audioContext";
+import { useAudio } from "./../components/audioPlayer/audioContext";
 
 export const QuraaSwr = () => {
   const { value: reciter } = useReciterContext();

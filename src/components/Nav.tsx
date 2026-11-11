@@ -7,7 +7,7 @@ const links = [
   { label: "المصحف", to: "/moshaf", icon: BookOpen },
   { label: "التلاوات", to: "/quraa", icon: Headphones },
   { label: "الراديو", to: "/radio", icon: Radio },
-  { label: "اسلاميات", to: "/islam", icon: Sparkles },
+  { label: "اسلاميات", to: "/gallery", icon: Sparkles },
 ];
 
 export function Nav() {
