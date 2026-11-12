@@ -6,6 +6,7 @@ import { cn } from "./../lib/utils";
 import { useNavigate } from "react-router-dom";
 import { toArabicNumber } from "../utils/changeNumbersToArabic";
 import {surahs as surahsData } from './../data/surahs';
+import React from "react";
 
 const filters: {visibleName: string; value: string}[] = [
   {
@@ -38,7 +39,7 @@ export const MoshafAllSwr = () => {
         toArabicNumber(surah.number).includes(normalizedQuery);
       return matchesQuery && (filter === "الكل" || surah.revelation === filter);
     });
-  }, [surahsData,filter, query]);
+  }, [filter, query]);
 
   return (
     <div className="min-h-screen bg-background">

@@ -4,7 +4,8 @@ import { useMemo, useState } from "react";
 import { Input } from "./../components/ui/input";
 import { singleReciter } from "./../types/reciters.types";
 import { useGetReciters } from "./../api/reciters/reciters.queries";
-import { useReciterContext } from "./../context/reciterContext/reciterContext";
+import { useReciterContext } from "../context/reciterContext/reciter/reciter.context";
+import React from "react";
 
 const normalize = (s: string) => s.replace(/[أإآ]/g, "ا").replace(/ة/g, "ه").replace(/ى/g, "ي");
 

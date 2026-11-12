@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import "./styles.css";
 import {Nav} from "./components/Nav";
 import { Route, Routes } from "react-router-dom";
@@ -15,16 +15,22 @@ import AudioWrapper from "./components/audioPlayer/AudioWrapper";
 import {AudioPlayer} from "./components/audioPlayer/AudioPlayer";
 import { Gallery } from "./pages/Gallery";
 import Loading from "./components/loading/Loading";
-import { ReciterContextLayout } from "./context/reciterContext/reciterContext";
+import { ReciterContextLayout } from "./context/reciterContext/reciter/reciterContext.hooks";
 import { ScrollToTOp } from "./components/ScrollToTop";
 
+const emptySubscribe = () => () => {};
+
+function useHasMounted() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+}
+
 const App = () => {
-  const [day, setDay] = useState(0);
-  const [loaded,setLoaded] = useState(false);
-  useEffect(() => {
-    setDay(new Date().getDay());
-    setLoaded(true);
-  }, []);
+  const day = new Date().getDay();
+  const loaded = useHasMounted();
 
   return (
     <>

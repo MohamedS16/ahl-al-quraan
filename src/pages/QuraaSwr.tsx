@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import React from "react";
 import {
   ArrowRight,
   Play,
@@ -16,7 +17,7 @@ import {
 } from "./../components/ui/select";
 import { surahs } from "./../data/surahs";
 import { cn } from "./../lib/utils";
-import { useReciterContext } from "../context/reciterContext/reciterContext";
+import { useReciterContext } from "../context/reciterContext/reciter/reciter.context";
 import { toArabicNumber } from './../utils/changeNumbersToArabic';
 import { Surah } from './../types/moshafSora.types';
 import { useAudio } from "./../components/audioPlayer/audioContext";

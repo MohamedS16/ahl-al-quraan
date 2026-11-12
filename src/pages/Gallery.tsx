@@ -1,5 +1,5 @@
 import { BookOpen, ChevronRight, Headphones, Play, Search, Sparkles, X } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { useGetGallery } from '../api/gallery/gallery.queries';
@@ -7,21 +7,24 @@ import { type IslamicVideo } from "../types/gallery.types";
 
 export const Gallery = () => {
   const {data: gallery, isLoading} = useGetGallery();
-  const islamicVideos: IslamicVideo[] =
-  !isLoading && gallery
+  const islamicVideos: IslamicVideo[] = useMemo(()=>!isLoading && gallery
     ? Object.values(gallery).flat()
-    : [];
+    : [],[gallery,isLoading]);
 
   const [query, setQuery] = useState("");
   const [selectedVideo, setSelectedVideo] = useState<IslamicVideo | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(10);
 
-  useEffect(() => {
-    if (islamicVideos.length > 0 && !selectedVideo) {
-      const idx = Math.floor(Math.random() * islamicVideos.length);
-      setSelectedVideo(islamicVideos[idx]);
-    }
-  }, [islamicVideos]);
+const initialized = useRef(false);
+
+useEffect(() => {
+  if (initialized.current || !islamicVideos.length) return;
+
+  const idx = Math.floor(Math.random() * islamicVideos.length);
+
+  setSelectedVideo(islamicVideos[idx]);
+  initialized.current = true;
+}, [islamicVideos]);
 
   const videos = useMemo(() => {
     if(!query || query === "") return islamicVideos;

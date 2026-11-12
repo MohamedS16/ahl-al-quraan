@@ -8,7 +8,7 @@ import {
     Waves,
     X,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Button } from "./../components/ui/button";
 import { Input } from "./../components/ui/input";
 import { changeNumbersToArabic } from './../utils/changeNumbersToArabic';
@@ -53,17 +53,13 @@ export const RadioPage = ()=>{
     });
   }, [query, stations]);
 
-  const pageCount = getRadioPageCount(filtered?.length || 0, RADIO_PAGE_SIZE);
-  const visibleStations = paginateRadios(filtered || [], page, RADIO_PAGE_SIZE);
-
-  useEffect(() => {
+  const handleQueryChange = (query: string) =>{
+    setQuery(query);
     setPage(1);
-  }, [query]);
-
-  useEffect(() => {
-    if (pageCount > 0 && page > pageCount) setPage(pageCount);
-  }, [page, pageCount]);
-
+  }
+  const pageCount = getRadioPageCount(filtered?.length || 0, RADIO_PAGE_SIZE);
+  const currentPage = Math.min(page, Math.max(1, pageCount));
+  const visibleStations = paginateRadios(filtered || [], currentPage, RADIO_PAGE_SIZE);
 
   const playStation = (station: RadioChannel) => {
     station.name = ` إذاعة ${station.name}`;
@@ -116,7 +112,7 @@ export const RadioPage = ()=>{
                 />
                 <Input
                   value={query}
-                  onChange={(event) => setQuery(event.target.value)}
+                  onChange={(event) => handleQueryChange(event.target.value)}
                   placeholder="ابحث عن إذاعة أو قارئ"
                   aria-label="ابحث عن إذاعة أو قارئ"
                   className="h-11 rounded-md bg-card pr-12 pl-10"
@@ -126,7 +122,7 @@ export const RadioPage = ()=>{
                     type="button"
                     variant="ghost"
                     size="icon"
-                    onClick={() => setQuery("")}
+                    onClick={() => handleQueryChange("")}
                     aria-label="مسح البحث"
                     className="absolute left-1 top-1/2 size-9 -translate-y-1/2"
                   >
@@ -209,7 +205,7 @@ export const RadioPage = ()=>{
                     variant="outline"
                     size="icon"
                     onClick={() => setPage((value) => Math.max(1, value - 1))}
-                    disabled={page === 1}
+                    disabled={currentPage === 1}
                     aria-label="الصفحة السابقة"
                   >
                     <ChevronRight className="size-4" />
@@ -221,11 +217,11 @@ export const RadioPage = ()=>{
                     <Button
                       key={pageNumber}
                       type="button"
-                      variant={pageNumber === page ? "default" : "outline"}
+                      variant={pageNumber === currentPage ? "default" : "outline"}
                       size="icon"
                       onClick={() => setPage(pageNumber)}
                       aria-label={`الصفحة ${changeNumbersToArabic(pageNumber)}`}
-                      aria-current={pageNumber === page ? "page" : undefined}
+                      aria-current={pageNumber === currentPage ? "page" : undefined}
                     >
                       {changeNumbersToArabic(pageNumber)}
                     </Button>
@@ -237,14 +233,14 @@ export const RadioPage = ()=>{
                     onClick={() =>
                       setPage((value) => Math.min(pageCount, value + 1))
                     }
-                    disabled={page === pageCount}
+                    disabled={currentPage === pageCount}
                     aria-label="الصفحة التالية"
                   >
                     <ChevronLeft className="size-4" />
                   </Button>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  الصفحة {changeNumbersToArabic(page)} من {changeNumbersToArabic(pageCount)}
+                  الصفحة {changeNumbersToArabic(currentPage)} من {changeNumbersToArabic(pageCount)}
                 </p>
               </nav>
             )}

@@ -19,6 +19,8 @@ export const AudioPlayer = () => {
     const { audioDetails } = useAudio();
 
     const handleDownload = (link : string,name : string)=>{
+      if(!link) return;
+      if(!name) name = "ahl-al-quran.mp3";
       axios.get(link,{
             responseType : 'blob'
         }).then(res=>fileDownload(res.data,name))
@@ -33,12 +35,17 @@ export const AudioPlayer = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    if (audioDetails){
+      if (!audioDetails) return;
       const audio = audioRef.current;
-      audio?.play();
+      if (!audio) return;
+      audio.currentTime = 0;
+      audio.play().catch((error) => {
+        console.error("Audio playback failed:", error);
+      });
+
       setCurrentTime(0);
       setPlaying(true);
-    }
+    
   }, [audioDetails]);
 
   useEffect(() => {
@@ -189,7 +196,7 @@ export const AudioPlayer = () => {
                       />
                     </div>
                     <button
-                      onClick={()=>handleDownload(audioDetails?.url!,`${audioDetails?.name}.mp3`)}
+                      onClick={()=>handleDownload(audioDetails.url!,`${audioDetails.name}.mp3`)}
                       aria-label="تنزيل التلاوة"
                       className="cursor-pointer grid size-9 place-items-center rounded-full text-muted-foreground transition hover:bg-accent hover:text-primary"
                     >
